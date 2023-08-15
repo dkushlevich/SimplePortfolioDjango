@@ -6,7 +6,9 @@
             <div class="contact-info">
                 <div><i class='bx bxs-map-pin'></i>{{user.address}}</div>
                 <div><i class='bx bxl-gmail'></i>{{user.email}}</div>
-                <div><i class='bx bxl-telegram'></i>{{user.telegram_profile_linl}}</div>
+                {% if user.telegram_username %}
+                    <div><i class='bx bxl-telegram'></i>@{{user.telegram_username}}</div>
+                {% endif %}
             </div>
             <div class="contact-form">
                 <form class="contact" method="post">

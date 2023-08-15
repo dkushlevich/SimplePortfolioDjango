@@ -9,10 +9,10 @@ User = get_user_model()
 class PortfolioView(FormView):
     template_name = "base.html"
     form_class = ContactForm
-    success_url = "/"
+    success_url = "/#contact"
 
 
-    def get_context_data(self, **kwargs):  # noqa: ANN003
+    def get_context_data(self, **kwargs):
 
         context = super().get_context_data(**kwargs)
         user = User.objects.first()

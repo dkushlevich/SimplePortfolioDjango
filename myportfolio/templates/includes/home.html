@@ -13,9 +13,19 @@
             <img src="{{ im.url }}" alt="">
         {% endthumbnail %}
         <div class="social-media">
-            <a href="{{user.github_profile_link}}"><i class='bx bxl-github'></i></a>
-            <a href="{{user.linkedin_profile_link}}"><i class='bx bxl-linkedin'></i></a>
-            <a href="{{user.telegram_profile_linl}}"><i class='bx bxl-telegram'></i></a>
+
+            {% if user.github_profile_link%}
+                <a href="{{user.github_profile_link}}"><i class='bx bxl-github'></i></a>
+            {% endif %}
+
+            {% if user.linkedin_profile_link %}
+                <a href="{{user.linkedin_profile_link}}"><i class='bx bxl-linkedin'></i></a>
+            {% endif %}
+
+            {% if user.telegram_username %}
+                <a href="https://t.me/{{user.telegram_username}}"><i class='bx bxl-telegram'></i></a>
+            {% endif %}
+
         </div>
     </div>
 </div>

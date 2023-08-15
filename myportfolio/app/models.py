@@ -8,7 +8,12 @@ class User(AbstractUser):
 
     github_profile_link = models.URLField("github", blank=True, null=True)
     linkedin_profile_link = models.URLField("linkedin", blank=True, null=True)
-    telegram_profile_linl = models.URLField("telegram", blank=True, null=True)
+    telegram_username = models.CharField(
+        "telegram username",
+        blank=True,
+        null=True,
+        max_length=100,
+    )
 
     home_image = models.ImageField(
         upload_to="user/",
@@ -75,7 +80,6 @@ class Instrument(models.Model):
     development_type = models.CharField(
         choices=DEV_TYPE_CHOICES,
         max_length=max([len(word) for word, _ in DEV_TYPE_CHOICES]),
-        default=FRONTEND
     )
 
     class Meta:

@@ -1,0 +1,60 @@
+{% load static %}
+{% load thumbnail %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">{{user.get_full_name}}.</a>
+        
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <i class='bx bx-sun' id="switcher"></i>
+        </nav>
+
+    </header>
+    <!-- <div class="alert-success">
+        <span>Message Sent! Thank you for contacting me.</span>
+    </div>
+    <div class="alert-error">
+        <span>Something went wrong! Please try again.</span>
+    </div> -->
+
+    <section class="home" id="home">
+        {% include "includes/home.html" %}
+    </section>
+    <section class="about" id="about">
+        {% include "includes/about.html" %}
+    </section>
+    <section class="experience" id="experience">
+        {% include "includes/experience.html" %}
+    </section>
+    <section clas="projects" id="projects">
+        {% include "includes/projects.html" %}
+    </section>
+    <section id="contact">
+        {% include "includes/contact.html" %}
+    </section>
+    
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2023 by Dkushlevich | All Rights Reserverd</p>
+        </div>
+    </footer>
+
+    <script src="{% static "js/script.js" %}"></script>
+</body>
+</html>

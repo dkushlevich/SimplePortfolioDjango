@@ -1,13 +1,16 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-__l58$z1wu=cgeb!pb=9h_lgew@al4ce#!n#p@v14(+e*+(ljc"
+SECRET_KEY = os.getenv('SECRET_KEY', '17tg!(#wd6k%%*+q5y%%hk&13i%(_3&pho6bw!pj_c1#3xe$5b')
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG', False) == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1, localhost').split(', ')
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -90,8 +93,8 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
@@ -100,4 +103,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = 'app.User'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')

@@ -15,6 +15,11 @@ class User(AbstractUser):
         max_length=100,
     )
 
+    # Please, adjust this data in templates/includes/about.html
+    work_experience = models.CharField(max_length=100, blank=True, null=True)
+    education = models.CharField(max_length=100, blank=True, null=True)
+    # ------------------------------------------------------
+
     home_image = models.ImageField(
         upload_to="user/",
     )
@@ -22,7 +27,7 @@ class User(AbstractUser):
         upload_to="user/",
     )
 
-    def save(self, *args, **kwargs):  # noqa: ANN002, ANN003
+    def save(self, *args, **kwargs):
         """
         Save user to the database. Removes all other entries if there
         are any.
@@ -88,3 +93,22 @@ class Instrument(models.Model):
 
     def __str__(self) -> str:
         return f"Instrument {self.name}, {self.owner.get_full_name()}"
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=150)
+    message = models.TextField()
+    email = models.EmailField()
+
+    class Meta:
+        verbose_name = ("message")
+        verbose_name_plural = ("messages")
+        constraints = [  # noqa: RUF012
+            models.UniqueConstraint(
+                fields=["email", "message"],
+                name="unique_message",
+            ),
+        ]
+
+    def __str__(self) -> str:
+        return f"Message from {self.email}"

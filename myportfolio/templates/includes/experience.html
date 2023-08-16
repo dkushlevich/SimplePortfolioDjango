@@ -1,38 +1,39 @@
 <p class="section_text_p1">Explore my</p>
-        <h1 class="title">Experience</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <h2 class="experience-sub-title">
-                        Backend <br> Development
-                    </h2>
-                    <div class="article-container">
-                        {% for instrument in backend_instruments %}
-                        <article class="experience">
-                            <i class='bx bxs-check-circle' id="experience_icon"></i>
-                            <div>
-                                <h3>{{instrument.name}}</h3>
-                                <p>{{instrument.level}}</p>
-                            </div>
-                        </article>
-                        {% endfor %}
+<h1 class="title">Experience</h1>
+
+<div class="experience-details-container">
+    <div class="about-containers">
+        <div class="details-container">
+            <h2 class="experience-sub-title">
+                Backend <br> Development
+            </h2>
+            <div class="article-container">
+                {% for instrument in backend_instruments %}
+                <article class="experience">
+                    <i class='bx bxs-check-circle' id="experience_icon"></i>
+                    <div>
+                        <h3>{{instrument.name}}</h3>
+                        <p>{{instrument.level}}</p>
                     </div>
-                </div>
-                <div class="details-container">
-                    <h2 class="experience-sub-title">
-                        Frontend <br> Develompment
-                    </h2>
-                    <div class="article-container">
-                        {% for instrument in frontend_instruments %}
-                        <article class="experience">
-                            <i class='bx bxs-check-circle' id="experience_icon"></i>
-                            <div>
-                                <h3>{{instrument.name}}</h3>
-                                <p>{{instrument.level}}</p>
-                            </div>
-                        </article>
-                        {% endfor %}
-                    </div>
-                </div>
+                </article>
+                {% endfor %}
             </div>
         </div>
+        <div class="details-container">
+            <h2 class="experience-sub-title">
+                Frontend <br> Development
+            </h2>
+            <div class="article-container">
+                {% for instrument in frontend_instruments %}
+                <article class="experience">
+                    <i class='bx bxs-check-circle' id="experience_icon"></i>
+                    <div>
+                        <h3>{{instrument.name}}</h3>
+                        <p>{{instrument.level}}</p>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

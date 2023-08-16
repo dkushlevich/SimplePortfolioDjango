@@ -6,11 +6,14 @@ authors = ["dkushlevich <dkushlevich@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 django = "^4.2.4"
 ruff = "^0.0.284"
 pillow = "^10.0.0"
 sorl-thumbnail = "^12.9.0"
+python-dotenv = "^1.0.0"
+python-telegram-bot = "13.7"
+gunicorn = "^21.2.0"
 
 
 [build-system]
@@ -69,8 +72,9 @@ unfixable = [
 ]
 ignore = [
     "INP001",
-    "ANN003",
     "ANN001",
+    "ANN002",
+    "ANN003",
     "A002",   # builtin shadowing in arguments
     "A003",   # builtin shadowing in attributes
     "D203",   # 1 blank line required before class docstring

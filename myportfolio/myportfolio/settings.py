@@ -58,13 +58,23 @@ TEMPLATES = [
 WSGI_APPLICATION = "myportfolio.wsgi.application"
 
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    },
+POSTGRES_SETTINGS = {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': os.getenv('POSTGRES_DB', 'django'),
+    'USER': os.getenv('POSTGRES_USER', 'django'),
+    'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
+    'HOST': os.getenv('DB_HOST', ''),
+    'PORT': os.getenv('DB_PORT', 5432)
 }
 
+SQLITE_SETTINGS = {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': BASE_DIR / 'db.sqlite3',
+}
+
+DATABASES = {
+    'default': (POSTGRES_SETTINGS, SQLITE_SETTINGS)[os.getenv('DATABASE') == 'sqlite']
+}
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -106,3 +116,4 @@ AUTH_USER_MODEL = 'app.User'
 
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+

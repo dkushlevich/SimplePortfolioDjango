@@ -1,0 +1,31 @@
+version: '3'
+
+volumes:
+  pg_data:
+  static:
+  media:
+
+services:
+
+  db:
+    image: postgres:13.10
+    env_file: .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  backend:
+    image: dkushlevich/portfolio_backend
+    env_file: .env
+    volumes:
+      - static:/static
+      - media:/app/media
+    depends_on:
+      - db
+
+  gateway:
+    image: dkushlevich/portfolio_gateway
+    volumes:
+      - static:/static/
+      - media:/media
+    ports:
+      - 8000:80

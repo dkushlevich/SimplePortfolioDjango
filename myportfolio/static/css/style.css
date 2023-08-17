@@ -351,7 +351,8 @@ section {
     gap: 2rem;
     margin-bottom: 2rem;
     margin-top: 2rem;
-  }
+    flex-wrap: wrap;
+}
 
 .about-details-container {
     justify-content: center;
@@ -393,6 +394,14 @@ section {
 
 /* EXPERIENCE */
 
+#experience{
+    position: relative;
+    margin: 0 1rem;
+    position: relative;
+    box-sizing: border-box;
+    min-height: fit-content;
+}
+
 .experience-sub-title{
     font-weight: 600;
     font-size: 1.75rem;
@@ -407,6 +416,8 @@ section {
     margin-right: 5rem;
     justify-content: center;
     flex-direction: column;
+    flex-wrap: nowrap;
+
 }
 
 .article-container {
@@ -547,8 +558,7 @@ article.experience #experience_icon {
 .contact-info i{
     margin-right: 20px;
     font-size: 25px;
-    color: var(--second-bg-color);
-    vertical-align: middle;
+    color: var(--second-bg-color)
 }
 
 .contact-form{
@@ -583,7 +593,7 @@ article.experience #experience_icon {
     background-color: var(--bg-color);
     color: var(--text-color);
     border: 2px solid var(--second-bg-color);
-    width: 100%;
+    width: calc(100% - 10px);
     min-height: 200px;
     max-height: 400px;
     padding: 12px;
@@ -682,7 +692,7 @@ article.experience #experience_icon {
         align-items: center;
         flex-direction: column;
         text-align: center;
-      }
+    }
     
     .home-image {
       order: 1;
@@ -757,6 +767,11 @@ article.experience #experience_icon {
         margin: 0 5%;
       }
     
+    .home-image {
+        height: 350px;
+        width: 350px;
+    }
+    
     .about__pic-container{
         order: 1;
         width: 275px;
@@ -794,7 +809,7 @@ article.experience #experience_icon {
         flex-direction: column;
     }
     .contact-info, .contact-form{
-        margin: 30px 50px;
+        margin: 30px 0px;
     }
 
     .contact-form .text-box{
@@ -802,18 +817,41 @@ article.experience #experience_icon {
     }
 
     .contact-info{
-        font-size: 17px;
+        font-size: 18px;
         padding-left: 0;
     }
 
     .contact-section{
         margin-top: 0.5rem;
     }
+    .contact-form textarea{
+        width: 100%;
+    }
 
 }
 
 @media screen and (max-width:700px){
+    html{
+        font-size: 85%;
+    }
     .portfolios{
         grid-template-columns: repeat(1, 1fr);
+    }
+    .home-image {
+        height: 300px;
+        width: 300px;
+    }
+    .contact-info{
+        font-size: 12px;
+        padding-left: 0;
+    }
+    .portfolios .portfolio-item .hover-items .icons .icon {
+        width: 40px;
+        height: 40px;
+    }
+    .experience-details-container{
+        margin: 1rem;
+        font-size: 100%;
+    
     }
 }

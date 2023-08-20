@@ -5,7 +5,6 @@ from django.db import models
 class User(AbstractUser):
     address = models.TextField("current address", max_length=200)
     text_about = models.TextField("text about", blank=True, null=True)
-    cv_link = models.URLField("cv", blank=True, null=True)
 
     github_profile_link = models.URLField("github", blank=True, null=True)
     linkedin_profile_link = models.URLField("linkedin", blank=True, null=True)
@@ -21,6 +20,7 @@ class User(AbstractUser):
     education = models.CharField(max_length=100, blank=True, null=True)
     # ------------------------------------------------------
 
+    cv = models.FileField("cv", upload_to="media/user/", blank=True, null=True)
     home_image = models.ImageField(
         upload_to="user/",
     )

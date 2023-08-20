@@ -3,9 +3,9 @@
 <div class="home-content">
     <h1>Hi, I'm {{user.get_full_name}}</h1>
     <h3>Web Developer</h3>
-    {% if user.cv_link %}
+    {% if user.cv %}
     <div class="btn-box">
-        <a href="{{user.cv_link}}">Download CV</a>
+        <a href="{{user.cv}}" download="">Download CV</a>
     </div>
     {% endif %}
 </div>

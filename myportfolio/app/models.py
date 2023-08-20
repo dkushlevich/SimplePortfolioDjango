@@ -5,6 +5,7 @@ from django.db import models
 class User(AbstractUser):
     address = models.TextField("current address", max_length=200)
     text_about = models.TextField("text about", blank=True, null=True)
+    cv_link = models.URLField("cv", blank=True, null=True)
 
     github_profile_link = models.URLField("github", blank=True, null=True)
     linkedin_profile_link = models.URLField("linkedin", blank=True, null=True)
